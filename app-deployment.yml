@@ -4,6 +4,8 @@ metadata:
   name: bootit
   labels:
     app: bootit
+  annotations:
+    flux.weave.works/automated: "true"
 spec:
   replicas: 1
   selector:
