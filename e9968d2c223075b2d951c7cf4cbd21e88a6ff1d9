@@ -1,0 +1,1 @@
+{"jobID":"99f6341c-a7fa-34c7-8d7c-8951370d5283","spec":{"type":"policy","cause":{"Message":"","User":""},"spec":{"default:deployment/bootit":{"add":{"automated":"true"},"remove":{}}}},"result":null}
