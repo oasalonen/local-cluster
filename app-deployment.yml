@@ -28,7 +28,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: bootit
-        image: docker-registry:5000/bootit
+        image: local-registry:5000/bootit
         args: [
           "--spring.profiles.active=dev"
         ]
