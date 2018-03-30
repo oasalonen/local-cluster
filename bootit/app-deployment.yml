@@ -31,5 +31,17 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8002
+          initialDelaySeconds: 2
+          periodSeconds: 2
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8002
+          initialDelaySeconds: 2
+          periodSeconds: 2
       imagePullSecrets:
       - name: regcred
