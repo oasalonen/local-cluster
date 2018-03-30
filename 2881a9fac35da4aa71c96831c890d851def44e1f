@@ -1,0 +1,1 @@
+{"jobID":"3e4e2f84-91b1-eefb-7820-94b535f701fe","spec":{"type":"policy","cause":{"Message":"","User":""},"spec":{"elk:deployment/logstash":{"add":{"locked":"true"},"remove":{}}}},"result":null}
