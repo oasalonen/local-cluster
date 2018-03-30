@@ -5,6 +5,9 @@ Local Kubernetes cluster configuration for bootit. Consists of:
 - bootit app
 
 # Setup
+This assumes you already have a functioning Kubernetes setup.
+## Clone the repo
+Do it.
 ## Private container registry access
 The app should be available in a private docker registry. The current code assumes it is in ```ollireg.azurecr.io```. Kubernetes needs the credentials to access it so flux can perform CD.
 ```
