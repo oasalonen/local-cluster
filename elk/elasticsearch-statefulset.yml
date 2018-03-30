@@ -19,6 +19,8 @@ kind: StatefulSet
 metadata:
   name: elasticsearch
   namespace: elk
+  annotations:
+    flux.weave.works/locked: "true"
 spec:
   serviceName: elasticsearch
   replicas: 1

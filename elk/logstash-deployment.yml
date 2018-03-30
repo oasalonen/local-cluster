@@ -18,6 +18,8 @@ metadata:
   namespace: elk
   labels:
     app: logstash
+  annotations:
+    flux.weave.works/locked: "true"
 spec:
   replicas: 1
   selector:
