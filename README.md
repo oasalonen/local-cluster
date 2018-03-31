@@ -22,3 +22,16 @@ $ kubectl apply -f flux
 
 # Kibana
 To access the Kibana dashboard, go to ```http://localhost:5601/```
+
+
+# Notes
+## Kubernetes dashboard (insecure)
+```
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/alternative/kubernetes-dashboard.yaml
+```
+## Kubernetes graphs
+```
+$ kubectl create -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/grafana.yaml
+```
