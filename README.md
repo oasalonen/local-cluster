@@ -20,6 +20,8 @@ Simply start flux to create the cluster
 $ kubectl apply -f flux
 ```
 
+Get flux logs and find the generated ssh key. Add it to the git repo.
+
 # Kibana
 To access the Kibana dashboard, go to ```http://localhost:5601/```
 
