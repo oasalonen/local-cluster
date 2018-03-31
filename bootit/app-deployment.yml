@@ -5,8 +5,7 @@ metadata:
   labels:
     app: bootit
   annotations:
-    #flux.weave.works/automated: "true"
-    flux.weave.works/ignore: "true"
+    flux.weave.works/automated: "true"
 spec:
   replicas: 2
   selector:

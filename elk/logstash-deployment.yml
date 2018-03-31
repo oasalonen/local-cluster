@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    flux.weave.works/locked: "true"
   name: logstash
   namespace: elk
+  annotations:
+    flux.weave.works/ignore: "true"
 spec:
   selector:
     app: logstash
@@ -19,7 +19,7 @@ metadata:
   labels:
     app: logstash
   annotations:
-    flux.weave.works/locked: "true"
+    flux.weave.works/ignore: "true"
 spec:
   replicas: 1
   selector:

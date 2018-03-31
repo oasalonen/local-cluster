@@ -5,6 +5,8 @@ metadata:
   namespace: elk
   labels:
     app: elasticsearch
+  annotations:
+    flux.weave.works/ignore: "true"
 spec:
   selector:
     app: elasticsearch
@@ -20,7 +22,7 @@ metadata:
   name: elasticsearch
   namespace: elk
   annotations:
-    flux.weave.works/locked: "true"
+    flux.weave.works/ignore: "true"
 spec:
   serviceName: elasticsearch
   replicas: 1

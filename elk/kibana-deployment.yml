@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: kibana
   namespace: elk
+  annotations:
+    flux.weave.works/ignore: "true"
 spec:
   type: LoadBalancer
   selector:
@@ -18,7 +20,7 @@ metadata:
   labels:
     app: kibana
   annotations:
-    flux.weave.works/locked: "true"
+    flux.weave.works/ignore: "true"
 spec:
   replicas: 1
   selector:
