@@ -35,6 +35,7 @@ spec:
           httpGet:
             path: /actuator/health
             port: 8002
+          # Initial delay should be large enough to allow the app to successfully start
           initialDelaySeconds: 120
           periodSeconds: 2
         readinessProbe:
