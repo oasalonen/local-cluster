@@ -11,8 +11,7 @@ Do it.
 ## Private container registry access
 The app should be available in a private docker registry. The current code assumes it is in ```ollireg.azurecr.io```. Kubernetes needs the credentials to access it so flux can perform CD.
 ```
-kubectl create secret docker-registry regcred --docker-server=ollire
-g.azurecr.io --docker-username=<registry user name> --docker-email=<email> --docker-password=<registry password>
+kubectl create secret docker-registry regcred --docker-server=ollireg.azurecr.io --docker-username=<registry user name> --docker-email=<email> --docker-password=<registry password>
 ```
 ## Let flux do its magic
 Simply start flux to create the cluster

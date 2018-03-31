@@ -5,7 +5,7 @@ metadata:
   labels:
     app: bootit
   annotations:
-    flux.weave.works/automated: "true"
+    #flux.weave.works/automated: "true"
     flux.weave.works/locked: "true"
 spec:
   replicas: 2
