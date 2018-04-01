@@ -13,6 +13,11 @@ The app should be available in a private docker registry. The current code assum
 ```
 kubectl create secret docker-registry regcred --docker-server=ollireg.azurecr.io --docker-username=<registry user name> --docker-email=<email> --docker-password=<registry password>
 ```
+## Git repo access
+Flux will need access to the git repository where the cluster configuration is hosted (this repo). Create an ssh key, give it access to the repo, and then run
+```
+$ kubectl create secret generic flux-git-deploy --from-file=identity=/path/to/flux_id_rsa_private_key
+```
 ## Let flux do its magic
 Simply start flux to create the cluster
 ```
