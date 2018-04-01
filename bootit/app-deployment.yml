@@ -20,7 +20,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: bootit
-        image: ollireg.azurecr.io/bootit/bootit:1.0.8
+        image: ollireg.azurecr.io/bootit/bootit:1.0.9
         args: [
           "--spring.profiles.active=dev"
         ]
