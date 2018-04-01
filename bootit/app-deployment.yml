@@ -39,6 +39,8 @@ spec:
           # Initial delay should be large enough to allow the app to successfully start
           initialDelaySeconds: 120
           periodSeconds: 2
+        # It's important to have a readiness port so Kubernetes knows when to direct
+        # traffic to the replica.
         readinessProbe:
           httpGet:
             path: /actuator/health

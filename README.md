@@ -1,7 +1,7 @@
 # local-cluster
 Local Kubernetes cluster configuration for bootit. Consists of:
 - [flux](https://github.com/weaveworks/flux) for [GitOps](https://www.weave.works/blog/gitops-operations-by-pull-request)
-- ELK stack for logging with filebeats
+- ELK stack for logging with filebeats (currently ignored by flux)
 - bootit app
 
 # Setup
