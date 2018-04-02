@@ -27,6 +27,8 @@ spec:
         ports:
         - containerPort: 8002
           name: rest
+        - containerPort: 8003
+          name: actuator
         env:
         - name: POD_NAME
           valueFrom:
@@ -35,7 +37,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /actuator/health
-            port: 8002
+            port: 8003
           # Initial delay should be large enough to allow the app to successfully start
           initialDelaySeconds: 120
           periodSeconds: 2
@@ -44,7 +46,7 @@ spec:
         readinessProbe:
           httpGet:
             path: /actuator/health
-            port: 8002
+            port: 8003
           initialDelaySeconds: 2
           periodSeconds: 2
       imagePullSecrets:
