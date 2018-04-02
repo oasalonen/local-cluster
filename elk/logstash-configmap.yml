@@ -13,6 +13,16 @@ data:
       }
     }
 
+    filter {
+      if [kubernetes.namespace] == "elk" {
+        drop {}
+      }
+      if [kubernetes.namespace] == "kube-system" {
+        drop {}
+      }
+    }
+
     output {
-      elasticsearch { hosts => "elasticsearch:9200" }
+      #elasticsearch { hosts => "elasticsearch:9200" }
+      stdout {}
     }
