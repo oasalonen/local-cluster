@@ -20,7 +20,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: bootit
-        image: ollireg.azurecr.io/bootit/bootit:1.0.16
+        image: ollireg.azurecr.io/bootit/bootit:1.0.18
         args: [
           "--spring.profiles.active=dev"
         ]
@@ -40,14 +40,14 @@ spec:
             port: 8003
           # Initial delay should be large enough to allow the app to successfully start
           initialDelaySeconds: 120
-          periodSeconds: 2
+          periodSeconds: 5
         # It's important to have a readiness port so Kubernetes knows when to direct
         # traffic to the replica.
         readinessProbe:
           httpGet:
             path: /actuator/health
             port: 8003
-          initialDelaySeconds: 2
+          initialDelaySeconds: 5
           periodSeconds: 2
       imagePullSecrets:
       - name: regcred

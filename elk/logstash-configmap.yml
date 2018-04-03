@@ -14,15 +14,12 @@ data:
     }
 
     filter {
-      if [kubernetes.namespace] == "elk" {
-        drop {}
-      }
-      if [kubernetes.namespace] == "kube-system" {
+      if [kubernetes][namespace] == "elk" or [kubernetes][namespace] == "kube-system" {
         drop {}
       }
     }
 
     output {
-      #elasticsearch { hosts => "elasticsearch:9200" }
-      stdout {}
+      #stdout { codec => rubydebug }
+      elasticsearch { hosts => "elasticsearch:9200" }
     }

@@ -17,14 +17,14 @@ spec:
     name: java
 ---
 apiVersion: apps/v1beta1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: elasticsearch
   namespace: elk
   annotations:
     flux.weave.works/ignore: "true"
 spec:
-  serviceName: elasticsearch
+  #serviceName: elasticsearch
   replicas: 1
   selector:
     matchLabels:
