@@ -20,7 +20,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: bootit
-        image: ollireg.azurecr.io/bootit/bootit:1.0.18
+        image: ollireg.azurecr.io/bootit/bootit:1.0.20
         args: [
           "--spring.profiles.active=dev"
         ]
@@ -34,6 +34,13 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
+        resources:
+          requests:
+            memory: "150M"
+          limits:
+            # Relies on image defining -XX:+UnlockExperimentalVMOptions and -XX:+UseCGroupMemoryLimitForHeap
+            # Too aggressive for prod?
+            memory: "300M"
         livenessProbe:
           httpGet:
             path: /actuator/health
@@ -41,8 +48,9 @@ spec:
           # Initial delay should be large enough to allow the app to successfully start
           initialDelaySeconds: 120
           periodSeconds: 5
-        # It's important to have a readiness port so Kubernetes knows when to direct
-        # traffic to the replica.
+          timeoutSeconds: 3
+          failureThreshold: 5
+        # Readiness probe allows Kubernetes to know when to direct traffic to the replica.
         readinessProbe:
           httpGet:
             path: /actuator/health
