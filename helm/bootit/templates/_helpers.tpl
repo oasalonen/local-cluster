@@ -40,3 +40,7 @@ Credentials to pull images from the private registry.
 {{- $password := required "Password missing" .Values.image.credentials.password -}}
 {{- printf "{\"auths\": {\"%s\": {\"auth\": \"%s\"}}}" $registry (printf "%s:%s" $username $password | b64enc) | b64enc -}}
 {{- end -}}
+
+{{- define "imagePullSecret.fullname" -}}
+{{- template "bootit.fullname" . -}}-regcred
+{{- end -}}

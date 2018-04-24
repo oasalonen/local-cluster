@@ -11,7 +11,7 @@ Do it.
 ## Private container registry access
 The app should be available in a private docker registry. The current code assumes it is in ```ollireg.azurecr.io```. Kubernetes needs the credentials to access it so flux can perform CD.
 ```
-kubectl create secret docker-registry regcred --docker-server=ollireg.azurecr.io --docker-username=<registry user name> --docker-email=<email> --docker-password=<registry password>
+$ kubectl create secret docker-registry regcred --docker-server=ollireg.azurecr.io --docker-username=<registry user name> --docker-email=<email> --docker-password=<registry password>
 ```
 ## Git repo access
 Flux will need access to the git repository where the cluster configuration is hosted (this repo). Create an ssh key, give it access to the repo, and then run
@@ -29,6 +29,19 @@ Get flux logs and find the generated ssh key. Add it to the git repo.
 # Kibana
 To access the Kibana dashboard, go to ```http://localhost:5601/```
 
+# Helm
+To spin up the bootit app with helm, go to the ```helm/``` directory and run
+```
+$ helm upgrade --install dev-bootit bootit -f <PATH_TO_REGISTRY_CREDENTIALS> --set service.port=8081
+```
+Setting the service port can be omitted. The ```PATH_TO_REGISTRY_CREDENTIALS``` should point to a .yaml file that defines the following properties for the private registry where the bootit app container images are hosted
+```
+image:
+  credentials:
+    registry: <registry host>
+    username: <registry username>
+    password: <registry password>
+```
 
 # Notes
 ## Kubernetes dashboard (insecure)

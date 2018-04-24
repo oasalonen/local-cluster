@@ -22,7 +22,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: {{ .Values.app.terminationGracePeriodSeconds }}
       imagePullSecrets:
-        - name: regcred
+        - name: {{ template "imagePullSecret.fullname" . }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
