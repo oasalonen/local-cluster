@@ -1,21 +1,20 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "bootit.fullname" . }}
+  name: {{ template "bootit.cache" . }}
   labels:
     app: {{ template "bootit.name" . }}
     chart: {{ template "bootit.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-    component: app
+    component: cache
 spec:
-  type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
   selector:
     app: {{ template "bootit.name" . }}
     release: {{ .Release.Name }}
-    component: app
+    component: cache
+  ports:
+  - port: 80
+    targetPort: http
+    protocol: TCP
+    name: http

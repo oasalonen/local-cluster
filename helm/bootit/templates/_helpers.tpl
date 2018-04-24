@@ -44,3 +44,7 @@ Credentials to pull images from the private registry.
 {{- define "imagePullSecret.fullname" -}}
 {{- template "bootit.fullname" . -}}-regcred
 {{- end -}}
+
+{{- define "bootit.cache" -}}
+{{- template "bootit.fullname" . -}}-cache
+{{- end -}}

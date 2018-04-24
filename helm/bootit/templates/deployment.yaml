@@ -14,11 +14,13 @@ spec:
     matchLabels:
       app: {{ template "bootit.name" . }}
       release: {{ .Release.Name }}
+      component: app
   template:
     metadata:
       labels:
         app: {{ template "bootit.name" . }}
         release: {{ .Release.Name }}
+        component: app
     spec:
       terminationGracePeriodSeconds: {{ .Values.app.terminationGracePeriodSeconds }}
       imagePullSecrets:
@@ -28,7 +30,8 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args: [
-            "{{ "--spring.profiles.active" }}={{ .Values.app.springProfiles }}"
+            "{{ "--spring.profiles.active" }}={{ .Values.app.springProfiles }}",
+            "{{ "--spring.redis.host" }}={{ template "bootit.cache" . }}",
           ]
           env:
             - name: POD_NAME
