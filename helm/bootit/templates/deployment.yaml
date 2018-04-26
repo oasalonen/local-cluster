@@ -30,7 +30,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args: [
-            "{{ "--spring.profiles.active" }}={{ .Values.app.springProfiles }}",
+            "{{ "--spring.profiles.active" }}={{ .Values.app.springProfiles }},redis",
             "{{ "--spring.redis.host" }}={{ template "bootit.cache" . }}",
           ]
           env:

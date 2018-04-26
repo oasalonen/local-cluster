@@ -22,7 +22,7 @@ spec:
       - name: bootit
         image: ollireg.azurecr.io/bootit/bootit:1.0.28
         args: [
-          "--spring.profiles.active=dev"
+          "--spring.profiles.active=dev,noredis"
         ]
         ports:
         - containerPort: 8002
